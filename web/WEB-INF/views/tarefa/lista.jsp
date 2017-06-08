@@ -39,6 +39,7 @@
       value="${tarefa.dataFinalizacao.time}" 
       pattern="dd/MM/yyyy" /></td>
           <td><a href="removeTarefa?id=${tarefa.id}">Remover</a></td>
+          <td><a href="mostraTarefa?id=${tarefa.id}">Alterar</a></td>
           <td>
               <c:if test="${tarefa.finalizado eq false}">
                   <a href="#" onclick="finalizaAgora(${tarefa.id})">Finalizar</a>
@@ -63,6 +64,6 @@
       });
             }
         </script>
-        
+        <td><a href="novaTarefa">Adicionar Nova Tarefa</a></td>
     </body>
 </html>

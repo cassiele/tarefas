@@ -14,4 +14,5 @@
     <body>
         <h1>Tarefa adicionada com sucesso.</h1>
     </body>
+    <td><a href="listaTarefas">Ir para Lista de Tarefas</a></td>
 </html>

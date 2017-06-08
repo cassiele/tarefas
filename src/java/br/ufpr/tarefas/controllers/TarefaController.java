@@ -23,16 +23,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author ufpr
  */
 @Controller
-public class TarefaController {
-    
+public class TarefaController {    
     @RequestMapping("/novaTarefa")
     public String form(){
         return "tarefa/formulario";
     }
     
     @RequestMapping("/adicionaTarefa")
-    public String adicionar(@Valid Tarefa tarefa, BindingResult result){
-        
+    public String adicionar(@Valid Tarefa tarefa, BindingResult result){        
         if (result.hasErrors()){
             return "tarefa/formulario";
         }
@@ -40,6 +38,20 @@ public class TarefaController {
         JdbcTarefaDao dao = new JdbcTarefaDao();
         dao.adiciona(tarefa);
         return "tarefa/adicionada";
+    }
+    
+    @RequestMapping("mostraTarefa")
+    public String mostra(Long id, Model model){
+        JdbcTarefaDao dao = new JdbcTarefaDao();
+        model.addAttribute("tarefa",dao.buscaPorId(id));
+        return "tarefa/mostra";
+    }
+    
+    @RequestMapping("alteraTarefa")
+    public String altera(Tarefa tarefa) {
+        JdbcTarefaDao dao = new JdbcTarefaDao();
+        dao.altera(tarefa);
+        return "redirect:listaTarefas";
     }
     
     @RequestMapping("/listaTarefas")

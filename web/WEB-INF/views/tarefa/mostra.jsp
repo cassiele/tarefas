@@ -1,8 +1,4 @@
-<%-- 
-    Document   : mostra
-    Created on : 08/06/2017, 11:33:11
-    Author     : julio
---%>
+
 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
